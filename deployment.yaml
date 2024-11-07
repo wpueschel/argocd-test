@@ -1,0 +1,22 @@
+---
+# website::tag::1:: Deploy the training/webapp Docker Container: https://hub.docker.com/r/training/webapp/
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-echo
+  namespace: nginx-echo
+spec:
+  selector:
+    matchLabels:
+      app: nginx-echo
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: nginx-echo
+    spec:
+      containers:
+        - name: nginx-echo
+          image: adfinissygroup/nginx-echo
+          ports:
+            - containerPort: 80

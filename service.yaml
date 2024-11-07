@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-echo
+  namespace: nginx-echo
+spec:
+  selector:
+    app: nginx-echo
+  ports:
+    - protocol: TCP
+      targetPort: 80
+      port: 8080
+  type: ClusterIP
+
